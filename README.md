@@ -6,7 +6,8 @@ This is my self study project where i pursue the following goals
 * Keep a well organized github repository inspired by (https://github.com/kigster/cmake-project-template)
 
 Building the static library with cmake
+Following script builds a project with generator of your choice (fx MinGW Makefiles) and then compiles
 mkdir build
-cd mkdir
+cd build
 cmake -G "MinGW Makefiles" ..
 cmake --build .
