@@ -1,29 +1,20 @@
 #include <iostream>
-#include "dynamicarray.h"
+#include "dynamic_array.h"
+
+using namespace datastructures;
 
 int main(int argc, char* argv[]) {
-
-    struct Vertex vtx {10, 10 ,10};
-    struct Vertex* vtxPtr = &vtx;
-    struct Vertex* newVtxAddress;
-    struct Vertex** newVtxAddressLocation = &newVtxAddress;
-
-    std::cout << "Setting vertex struct on stack (incorrect)" << std::endl;
-    setVertexOnStackIncorrect(vtx);
-    printVertex(&vtx);
-
-    std::cout << "Setting vertex struct on stack (correct)" << std::endl;
-    setVertexOnStackCorrect(vtx);
-    printVertex(&vtx);
-
-    std::cout << "Setting vertex struct on heap (incorrect)" << std::endl;
-    setVertexOnHeapIncorrect(newVtxAddress);
-    std::cout << "crash!" << std::endl;
-    // printVertex(newVtxAddress); // gives segmentation error
-
-    std::cout << "Setting vertex struct on heap (correct)" << std::endl;
-    setVertexOnHeapCorrect(newVtxAddressLocation);
-    printVertex(newVtxAddress);
-
+    DynamicArray d = DynamicArray(16);
+    d.Add(3);
+    d.Add(5);
+    d.Add(7);
+    std::cout << "Dynamic array is empty?" << d.isEmpty() << std::endl;
+    std::cout << "Ok whats the size?" << d.Size() << std::endl;
+    std::cout << "Ok whats the content?" << std::endl;
+    for (size_t i = 0; i < d.Size(); i++)
+    {
+        std::cout << i << ": " << d.Get(i) << std::endl;
+    }
+    
     return 0;
 }
