@@ -5,7 +5,7 @@ using namespace datastructures;
 
 DynamicArray::DynamicArray(size_t capacity = 16){
   if(capacity > 0){
-    array_ = new int[capacity];
+    array_ = std::make_unique<int>[capacity];
     capacity_ = capacity;
   }
 }
